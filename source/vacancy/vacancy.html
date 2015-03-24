@@ -1,0 +1,29 @@
+<style>
+    .vacation h3 {
+        background-color: #ecf0f1;
+        padding: 48px 15px 42px 15px;
+        margin-top: 0;
+    }
+    .description {
+        padding: 20px 15px;
+    }
+</style>
+<div class="bs-component vacation">
+    <h3>{{ vm.vacancy.jobtitle }}</h3>
+    <div class="description">
+        <p>{{ vm.vacancy.description }} </p>
+        <div ng-if="vm.vacancy.languages">
+            Languages:
+            <ul>
+                <li ng-repeat="language in vm.vacancy.languages">{{ language }}</li>
+            </ul>
+        </div>
+        <div ng-if="vm.vacancy.compskills">
+            Comp Skills:
+            <ul>
+                <li ng-repeat="compskill in vm.vacancy.compskills">{{ compskill }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+

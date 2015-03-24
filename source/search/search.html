@@ -1,0 +1,33 @@
+<div class="bs-component">
+    <div class="jumbotron">
+        <div class="navbar-form navbar-middle">
+            <form action="" ng-submit="vm.search(vm.searchText)">
+                <h2>Find your perfect Job</h2>
+                <input type="text" ng-model="vm.searchText" class="form-control" placeholder="Search" />
+                <input type="submit" value="Search" class="btn btn-default" />
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <ul>
+        <li ng-repeat="vacancy in vm.vacancies">
+            <h3><a href="" ng-click="vm.open(vacancy)">{{ vacancy.jobtitle }}</a></h3>
+            <div>
+                <p ng-bind-html="vacancy.description | highlight:vm.searchText"></p>
+                <div ng-if="vacancy.languages">
+                    Languages:
+                    <ul>
+                        <li ng-repeat="language in vacancy.languages">{{ language }}</li>
+                    </ul>
+                </div>
+                <div ng-if="vacancy.compskills">
+                    Comp Skills:
+                    <ul>
+                        <li ng-repeat="compskill in vacancy.compskills">{{ compskill }}</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
